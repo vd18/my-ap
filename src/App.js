@@ -63,6 +63,7 @@ function App(props) {
         {/* <Route path="/about" element={<About />} />
           <Route path="/" element={<Home />} /> */}
  <Textbox showAlert={showAlert} title = 'Enter text to analyze' mode={mode}/>
+ 
   </div>
   {/* </Router> */}
   </>
