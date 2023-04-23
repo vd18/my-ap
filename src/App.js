@@ -3,15 +3,15 @@ import './App.css';
 import Navbar from './comonent/Navbar';
 import Textbox from './comonent/Textbox';
 import Alert from './comonent/Alert';
-import About from './About';
+// import About from './About';
 import React,  {useState} from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Routes
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link,
+//   Routes
+// } from "react-router-dom";
 
 function App(props) {
 
@@ -49,22 +49,22 @@ function App(props) {
 
   return (
   <>
-  <Router>
+  {/* <Router> */}
   <Navbar title = 'vd' mode={mode} toggleMode={toggleMode}  about = 'about vd'/>
   <Alert alert={alert} />
   <div className='container'>
 
-    <Routes>
+    {/* <Routes>
           <Route path="/About" element={<About />} />
-          <Route path="/" element = {<Textbox showAlert={showAlert} title = 'Enter text to analyze' mode={mode}/>} />
+          <Route path="/" element = {} />
           
           </Routes>
-      
+       */}
         {/* <Route path="/about" element={<About />} />
           <Route path="/" element={<Home />} /> */}
- 
+ <Textbox showAlert={showAlert} title = 'Enter text to analyze' mode={mode}/>
   </div>
-  </Router>
+  {/* </Router> */}
   </>
   );
 }
