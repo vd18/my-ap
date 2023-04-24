@@ -44,9 +44,13 @@ export default function Textbox(props) {
 
 
   const handleONclickd = ()=>{
+    if(text === ''){
+      props.showAlert('Write something' , 'danger')
+    }
+    else{
     setText('')
     props.showAlert('Cleared Text' , 'success')
-  }
+  }}
 
   
   
@@ -60,20 +64,28 @@ export default function Textbox(props) {
   //copytxt
 
   const copytxt = ()=>{
+    if(text === ''){
+      props.showAlert('Write something' , 'danger')
+    }
+    else{
     var textq = document.getElementById('mybox');
     textq.select();
     navigator.clipboard.writeText(textq.value)
     props.showAlert('Text copied on clipboard' , 'success')
   }
-
+  }
   //remove sextra sace
   
  const space = ()=>{
+  if(text === ''){
+    props.showAlert('Write something' , 'danger')
+  }
+  else{
     let newtxt = text.split(/[ ]+/);
     setText(newtxt.join(" "))
     props.showAlert('Extra space removed' , 'success')
 
- }
+ }}
 
 
 //dark mode
@@ -94,10 +106,11 @@ export default function Textbox(props) {
               <button className='btn btn-primary mx-1 my-1' onClick={handleONclicku}>Convert to Uppercase</button>
               <button className='btn btn-primary mx-1 my-1' onClick={handleONclickl}>Convert to Lowercase</button>
 
-               <button className='btn btn-danger mx-1 my-1'  onClick={handleONclickd}>Clear text</button>
+             
                <button className='btn btn-primary mx-1 my-1'  onClick={copytxt}>Copy</button>
                <button className='btn btn-primary mx-1 my-1'  onClick={space}>Remove extra space</button>
                <button className='btn btn-primary mx-1 my-1'  onClick={first}>First latter capital</button>
+               <button className='btn btn-danger mx-1 my-1'  onClick={handleONclickd}>Clear text</button>
               
              
 
@@ -107,7 +120,7 @@ export default function Textbox(props) {
               <div className='containar my-2'style={{color:props.mode === `dark`?`white`:`black` }}>
              
                 <h2>Your text summary</h2>
-                <p>{text.split(" ").length} Words and {text.length} characters</p>
+                <p>{text.split(" ").filter((element)=>{return element.length!=0}).length} Words and {text.length} characters</p>
               </div>
              
     </div>   

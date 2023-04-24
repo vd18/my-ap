@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './comonent/Navbar';
 import Textbox from './comonent/Textbox';
 import Alert from './comonent/Alert';
-// import About from './About';
+import About from './About';
 import React,  {useState} from 'react'
 // import {
 //   BrowserRouter as Router,
@@ -26,7 +26,7 @@ function App(props) {
   })
   setTimeout(() => {
     showAlert(null)
-  }, 7000);
+  }, 6000);
 
 
 
@@ -66,6 +66,10 @@ function App(props) {
  
   </div>
   {/* </Router> */}
+  <div  className='container'>
+    <h2  style={{color:props.mode === `dark`?`white`:`gray`}}>About this app</h2>
+  <About />
+  </div>
   </>
   );
 }
